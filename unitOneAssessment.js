@@ -18,7 +18,7 @@ const { throws } = require('assert')
   }
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 
 // Question Two:
@@ -31,7 +31,7 @@ const numberOfDigits = (num) => {
   return newStr.length
 }
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
@@ -39,18 +39,22 @@ const numberOfDigits = (num) => {
 // Treat y as a consonant, not a vowel
 
 const disemvowel = (str) => {
-  let newStr = str.toLowerCase().split('')
-  
+  return str.replace(/[aeiouAEIOU]/ig,'')
 }
-disemvowel('HEEEEEllo')
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
+const secondSmallest = (arr) => {
+  let sortedArr = arr.sort((a,b) => a-b)
+  return sortedArr[1]
+}
+// console.log(secondSmallest([-1, 10, 8, 7, 13, 23, 4]))
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
@@ -85,7 +89,7 @@ const onlyOddStrings = (arr) => {
   return onlyOdd
 }
 // Uncomment out the next line to test your solution
-runQ6Tests()
+// runQ6Tests()
 
 
 // Question Seven:
@@ -120,7 +124,7 @@ const getAllDayDescriptions = (arr) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ7Tests()
+// runQ7Tests()
 
 
 
