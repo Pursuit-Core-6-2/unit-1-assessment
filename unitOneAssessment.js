@@ -1,4 +1,5 @@
 let assert = require('assert')
+const { throws } = require('assert')
 
 // Question One:
 
@@ -102,8 +103,24 @@ runQ6Tests()
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
 
+class Day {
+  constructor(temp, weather){
+    this.temperature = temp,
+    this.weather = weather
+  }
+
+  getDescription = () => {
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  }
+}
+
+const getAllDayDescriptions = (arr) => {
+  let descriptions = arr.map(elem => elem.getDescription())
+  return descriptions
+}
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
