@@ -4,32 +4,89 @@ let assert = require('assert')
 
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
-
+function isOdd(num) {
+  if(isNaN(num)) {
+    return false
+  }
+  if (num % 2 === 0) {
+    return false
+  }
+  return true
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 
 // Question Two:
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
+function numberOfDigits(num) {
+  let number = num.toString()
+  let count = 0
+  for (let i = 0; i < number.length; i++) {
+    count++
+  }
+  return count
+}
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
+function disemvowel(str) {
+  const vowels = {
+    'a': 'a',
+    'e': 'e',
+    'i': 'i',
+    'o': 'o',
+    'u': 'u'
+  }
+  let noVowels = ''
+
+  for (let i = 0; i < str.length; i++) {
+    if((str[i].toLowerCase()) !== vowels[str[i].toLowerCase()]) {
+      // console.log(str[i].toLowerCase())
+      noVowels += str[i]
+    }
+  }
+  return noVowels
+}
+
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
+function secondSmallest(arr) {
+  let smallest = null
+  let secondSmallest = null
+
+  for (let i = 0; i < arr.length; i++) {
+    // console.log('smallest: ', smallest)
+    // console.log('second smallest: ', secondSmallest)
+
+    if (smallest === null) {
+      smallest = arr[i]
+    } else if (smallest < arr[i] && secondSmallest === null) {
+      secondSmallest = arr[i]
+    } else if (smallest < arr[i] && secondSmallest > arr[i]) {
+      secondSmallest = arr[i]
+    } else if (smallest > arr[i]) {
+      secondSmallest = smallest
+      smallest = arr[i]
+    }
+  }
+  return secondSmallest
+}
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
@@ -42,8 +99,16 @@ let assert = require('assert')
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
 
+function getLocations(arr)  {
+  let locations = [];
+  for (let i = 0; i < arr.length; i++) {
+    locations.push(arr[i].location)
+  }  
+  return locations
+}
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // Question Six:
@@ -51,8 +116,14 @@ let assert = require('assert')
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
+function onlyOddStrings(arr) {
+  const result = arr.filter(str => str.length % 2 !== 0)
+
+  return result
+}
+
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // Question Seven:
@@ -70,8 +141,27 @@ let assert = require('assert')
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
 
+class Day {
+  constructor(temperature, weather) {
+    this.temperature = temperature;
+    this.weather = weather;
+  }
+
+  getDescription() {
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  }
+}
+
+let monday = new Day(80, 'sunny')
+console.log(monday)
+
+function getAllDayDescriptions(arr) {
+  let descriptions =  arr.map(day => `It is ${day.temperature} degrees and ${day.weather}`)
+  return descriptions
+}
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
