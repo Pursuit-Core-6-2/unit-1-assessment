@@ -38,14 +38,10 @@ const numberOfDigits = (num) => {
 // Treat y as a consonant, not a vowel
 
 const disemvowel = (str) => {
-  let vowels = ['a','e','i','o','u']
-  let splitStr = str.split('')
-  console.log(splitStr)
-  splitStr.forEach((letter) => {
-
-  })
+  let newStr = str.toLowerCase().split('')
+  
 }
-disemvowel('hello')
+disemvowel('HEEEEEllo')
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
@@ -82,8 +78,13 @@ const getLocations = (arr) => {
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
+
+const onlyOddStrings = (arr) => {
+  let onlyOdd = arr.filter(str => str.length % 2 !== 0)
+  return onlyOdd
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // Question Seven:
