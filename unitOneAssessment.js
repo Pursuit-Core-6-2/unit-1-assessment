@@ -24,6 +24,11 @@ let assert = require('assert')
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
 
+const numberOfDigits = (num) => {
+  let str = num.toString()
+  let newStr = str.split('')
+  return newStr.length
+}
 // Uncomment out the next line to test your solution
 // runQ2Tests()
 
