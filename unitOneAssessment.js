@@ -75,7 +75,7 @@ const getLocations = (arr) => {
   return locArr
 }
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // Question Six:
@@ -89,7 +89,7 @@ const onlyOddStrings = (arr) => {
   return onlyOdd
 }
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // Question Seven:
@@ -124,7 +124,7 @@ const getAllDayDescriptions = (arr) => {
 }
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
