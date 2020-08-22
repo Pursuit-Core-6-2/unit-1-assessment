@@ -1,33 +1,45 @@
 let assert = require('assert')
 
 // Question One:
-
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
-
-
+const isOdd = num => num % 2 === 1;
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
 
 // Question Two:
-
 // Write a function called numberOfDigits that returns how many digits are in a given number
-
+const numberOfDigits = num => String(num).length
 // Uncomment out the next line to test your solution
 // runQ2Tests()
 
 // Question Three:
-
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
-
+const disemvowel = str => str.replace(/[aeiouAEIOU]/g, '')
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
+const secondSmallest = arr => {
+  const arrCopy = [...arr].sort((a,b) => a-b)
+  return arrCopy[1]
 
+  // next solution could have a bug for arr.length < 2
+  let smallest = Infinity
+  let secondSmallest = Infinity
+  arr.forEach(num => {
+    if (num < smallest) {
+      secondSmallest = smallest
+      smallest = num
+    } else if (num < secondSmallest) {
+      secondSmallest = num
+    }
+  });
+  return secondSmallest
+}
 // Uncomment out the next line to test your solution
 // runQ4Tests()
 
@@ -35,41 +47,46 @@ let assert = require('assert')
 // Write a function called getLocations that takes in an array of objects that look like the array below,
 // and returns an array of the strings corresponding to the value of the location property
 // The output should be in the same order as the input
-
 // Sample input:
 // [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
-
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
+const getLocations = arr => arr.map(country => country.location)
 
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 
 
 // Question Six:
-
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
-
+const onlyOddStrings = arr => arr.filter(str => isOdd(str.length))
 // Uncomment out the next line to test your solution
 // runQ6Tests()
 
 
 // Question Seven:
-
 // a.
 // Make a class called Day
 // Give it two properties set by the constructor named temperature and weather
 // Give it a method named getDescription that returns a string in the format described below
-
 // Example
 // let myDay = Day(80, "sunny")
 // myDay.getDescription() // returns "It is 80 degrees and sunny"
+class Day {
+  constructor(temp, weather) {
+    this.temperature = temp
+    this.weather = weather
+  }
 
+  getDescription() { // BETTER TO CREATE THIS AS A PROTOTYPE, but I don't remember the right syntax for it
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  } 
+}
 //b.
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
-
+const getAllDayDescriptions = arr => arr.map(day => day.getDescription())
 // Uncomment out the next line to test your solution
 // runQ7Tests()
 
