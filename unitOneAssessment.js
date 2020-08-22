@@ -5,10 +5,7 @@ let assert = require("assert");
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
 const isOdd = (param) => {
-  if (!param && Number(param) !== NaN) {
-    return false;
-  }
-  console.log(Number(param) !== NaN, !param);
+  if (isNaN(param)) return false;
 
   return Number(param) % 2 !== 0;
 };
