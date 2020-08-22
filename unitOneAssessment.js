@@ -37,6 +37,15 @@ const numberOfDigits = (num) => {
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
+const disemvowel = (str) => {
+  let vowels = ['a','e','i','o','u']
+  let splitStr = str.split('')
+  console.log(splitStr)
+  splitStr.forEach((letter) => {
+
+  })
+}
+disemvowel('hello')
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
@@ -57,6 +66,13 @@ const numberOfDigits = (num) => {
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
 
+const getLocations = (arr) => {
+  let locArr = []
+  for (let i = 0; i < arr.length; i++){
+    locArr.push(arr[i].location)
+  }
+  return locArr
+}
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 
