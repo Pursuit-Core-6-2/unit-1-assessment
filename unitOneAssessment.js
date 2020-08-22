@@ -1,35 +1,60 @@
 let assert = require('assert')
+const { throws } = require('assert')
 
 // Question One:
 
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
 
+  const isOdd = (num) => {
+    if(num % 2 === 0 || isNaN(num) === true){
+      return false
+    } else if(num % 2 !== 0){
+      return true
+    }
+    else{
+      return false
+    }
+  }
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 
 // Question Two:
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
 
+const numberOfDigits = (num) => {
+  let str = num.toString()
+  let newStr = str.split('')
+  return newStr.length
+}
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
+const disemvowel = (str) => {
+  return str.replace(/[aeiouAEIOU]/ig,'')
+}
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
+const secondSmallest = (arr) => {
+  let sortedArr = arr.sort((a,b) => a-b)
+  return sortedArr[1]
+}
+// console.log(secondSmallest([-1, 10, 8, 7, 13, 23, 4]))
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
@@ -42,8 +67,15 @@ let assert = require('assert')
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
 
+const getLocations = (arr) => {
+  let locArr = []
+  for (let i = 0; i < arr.length; i++){
+    locArr.push(arr[i].location)
+  }
+  return locArr
+}
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // Question Six:
@@ -51,8 +83,13 @@ let assert = require('assert')
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
+
+const onlyOddStrings = (arr) => {
+  let onlyOdd = arr.filter(str => str.length % 2 !== 0)
+  return onlyOdd
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // Question Seven:
@@ -70,8 +107,24 @@ let assert = require('assert')
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
 
+class Day {
+  constructor(temp, weather){
+    this.temperature = temp,
+    this.weather = weather
+  }
+
+  getDescription = () => {
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  }
+}
+
+const getAllDayDescriptions = (arr) => {
+  let descriptions = arr.map(elem => elem.getDescription())
+  return descriptions
+}
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
