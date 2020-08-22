@@ -1,3 +1,5 @@
+// Douglas MacKrell 6.2
+
 let assert = require('assert')
 
 // Question One:
@@ -5,28 +7,60 @@ let assert = require('assert')
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
 
+const isOdd = (n) => {
+  if (isNaN(n)) {
+    return false
+  } else if (n % 2 === 0) {
+    return false
+  } else {
+    return true
+  }
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 
 // Question Two:
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
 
+const numberOfDigits = (n) => {
+  let numStr = n.toString();
+  return numStr.length
+}
+
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
 
+const disemvowel = (str) => {
+  let newArr = []
+  let splitStr = str.split('')
+  let lowerCaseCheck = ""
+  for (let i = 0; i < splitStr.length; i++) {
+    lowerCaseCheck = splitStr[i].toLowerCase();
+    if (lowerCaseCheck === 'a' || lowerCaseCheck === 'e' || lowerCaseCheck === 'i' || lowerCaseCheck === 'o' || lowerCaseCheck === 'u') {
+      continue
+    } else {
+      newArr.push(splitStr[i]);
+    }
+  }
+  let answer = newArr.join('');
+  return answer
+}
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
+
+
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
