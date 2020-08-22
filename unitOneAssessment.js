@@ -60,15 +60,35 @@ runQ3Tests()
 // Question Four:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
-
+const secondSmallest = (arr) => {
+  let smallest = Infinity
+  let secondSmallest = Infinity
+  for (let number of arr) {
+    if (number < smallest) {
+      secondSmallest = smallest
+      smallest = number
+    } else if (number < secondSmallest && number > smallest) {
+      secondSmallest = number
+    }
+  }
+  return secondSmallest
+}
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
 // and returns an array of the strings corresponding to the value of the location property
 // The output should be in the same order as the input
+
+const getLocations = (arr) => {
+  let locations = []
+  for (let pin of arr) {
+    locations.push(pin.location);
+  }
+  return locations
+}
 
 // Sample input:
 // [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
@@ -77,7 +97,7 @@ runQ3Tests()
 // ["Algeria", "Belize", "China", "Denmark"]
 
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // Question Six:
@@ -85,8 +105,19 @@ runQ3Tests()
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
+const onlyOddStrings = (arr) => {
+  let myArr = []
+  const oddStrTest = (str) => {
+    if (str.length % 2 === 1) {
+      myArr.push(str)
+    }
+  }
+  arr.map(oddStrTest)
+  return myArr
+}
+
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // Question Seven:
@@ -96,6 +127,17 @@ runQ3Tests()
 // Give it two properties set by the constructor named temperature and weather
 // Give it a method named getDescription that returns a string in the format described below
 
+class Day {
+  constructor (temperature, weather) {
+    this.temperature = temperature;
+    this.weather = weather;
+  }
+
+  getDescription() {
+    return `It is ${this.temperature} degrees and ${this.weather}`
+  }
+}
+
 // Example
 // let myDay = Day(80, "sunny")
 // myDay.getDescription() // returns "It is 80 degrees and sunny"
@@ -104,8 +146,16 @@ runQ3Tests()
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
 
+const getAllDayDescriptions = (arr) => {
+  const getAllDescriptions = (day) => {
+    return day.getDescription()
+  } 
+
+  return arr.map(getAllDescriptions)
+} 
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
