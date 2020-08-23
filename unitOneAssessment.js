@@ -56,13 +56,15 @@ const secondSmallest = (array) => {
   return mins[1];
 }
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // QUESTION FIVE:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
 // and returns an array of the strings corresponding to the value of the location property
 // The output should be in the same order as the input
-
+const getLocations = (array) => {
+  return array.map(obj => obj.location);
+}
 // Sample input:
 // [{location: "Algeria", population: 41}, {location: "Belize", population: 0.4}, {location: "China", population: 1386}, {location: "Denmark", population: 6}]
 
@@ -70,7 +72,7 @@ const secondSmallest = (array) => {
 // ["Algeria", "Belize", "China", "Denmark"]
 
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 
 // QUESTION SIX:
