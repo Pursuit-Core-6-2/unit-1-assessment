@@ -4,20 +4,20 @@ let assert = require('assert')
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
 const isOdd = (num) => {
-  if (isNaN(num)) return false;
+  if (isNaN(parseInt(num))) return false;
+    // necessary check because true % 2 === 1 => true, (UNWANTED)
+    // isNaN(true) => false, (UNWANTED)
+    // isNaN(parseInt(true)) => true, (WANTED)
   return num % 2 === 1;
 }
-// Uncomment out the next line to test your solution
 runQ1Tests()
 
 
 // QUESTION TWO:
 // Write a function called numberOfDigits that returns how many digits are in a given number
 const numberOfDigits = (num) => {
-  if (num === 0) return 1;
-  return num.toString().length;
+  return num >= 0 ? num.toString().length : num.toString().length - 1;
 }
-// Uncomment out the next line to test your solution
 runQ2Tests()
 
 // QUESTION THREE:
@@ -36,26 +36,27 @@ const disemvowel = (string) => {
     .filter(char => !vowels[char.toLowerCase()])
     .join('');
 }
-// Uncomment out the next line to test your solution
 runQ3Tests()
 
 // QUESTION FOUR:
 // Write a function called secondSmallest that returns the second smallest number in an array
 const secondSmallest = (array) => {
+  if (array.length < 2) return null;
+
   const mins = new Array(2).fill(Number.MAX_VALUE);
   array.forEach(num => {
     const min = mins[0];
     const nextMin = mins[1];
+
     if (num < min) {
       mins.unshift(num);
     } else if (num < nextMin) {
-      mins.splice(1, 1, num);
+      mins.splice(1, 0, num);
     }
   });
 
   return mins[1];
 }
-// Uncomment out the next line to test your solution
 runQ4Tests()
 
 // QUESTION FIVE:
@@ -71,7 +72,6 @@ const getLocations = (array) => {
 // Sample output:
 // ["Algeria", "Belize", "China", "Denmark"]
 
-// Uncomment out the next line to test your solution
 runQ5Tests()
 
 
@@ -81,7 +81,6 @@ runQ5Tests()
 const onlyOddStrings = (array) => {
   return array.filter(string => string.length % 2 === 1);
 }
-// Uncomment out the next line to test your solution
 runQ6Tests()
 
 
@@ -101,7 +100,8 @@ class Day {
   }
 
   getDescription = () => {
-    return `It is ${this.temperature} degrees and ${this.weather}`;
+    const {temperature, weather} = this;
+    return `It is ${temperature} degrees and ${weather}`;
   }
 }
 
@@ -111,7 +111,6 @@ class Day {
 const getAllDayDescriptions = (array) => {
   return array.map(dayObj => dayObj.getDescription());
 }
-// Uncomment out the next line to test your solution
 runQ7Tests()
 
 
@@ -155,6 +154,8 @@ function runQ1Tests() {
     new TestCase(0, false),
     new TestCase(2, false),
     new TestCase(4, false),
+    new TestCase(true, false),
+    new TestCase(false, false),
     new TestCase(10, false),
     new TestCase(NaN, false),
     new TestCase("hi", false)
@@ -167,7 +168,9 @@ function runQ2Tests() {
       new TestCase(4,1),
       new TestCase(14,2),
       new TestCase(8473,4),
-      new TestCase(73746, 5)
+      new TestCase(73746, 5),
+      new TestCase(-10, 2),
+      new TestCase(0, 1)
     ]
     runTests("Two", testCases, numberOfDigits)
 }
