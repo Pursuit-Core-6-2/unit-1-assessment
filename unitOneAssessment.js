@@ -132,7 +132,9 @@ function runQ1Tests() {
     new TestCase(4, false),
     new TestCase(10, false),
     new TestCase(NaN, false),
-    new TestCase("hi", false)
+    new TestCase("hi", false),
+    new TestCase(true, false),
+    new TestCase(false, false)
   ]
   runTests("One", testCases, isOdd)
 }
