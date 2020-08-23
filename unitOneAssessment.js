@@ -146,7 +146,7 @@ function runQ2Tests() {
       new TestCase(8473,4),
       new TestCase(73746, 5),
       new TestCase(0, 1),
-      new TestCase(-11, 2),
+      new TestCase(-11, 2)
     ]
     runTests("Two", testCases, numberOfDigits)
 }
@@ -157,7 +157,7 @@ function runQ3Tests() {
     new TestCase("What's up?", "Wht's p?"),
     new TestCase("aeaeae", ""),
     new TestCase("y doesn't count", "y dsn't cnt"),
-    new TestCase("CAPITAL LETTERS DO COUNT", "CPTL LTTRS D CNT"),
+    new TestCase("CAPITAL LETTERS DO COUNT", "CPTL LTTRS D CNT")
   ]
   runTests("Three", testCases, disemvowel)
 }
