@@ -94,13 +94,25 @@ runQ6Tests()
 // Example
 // let myDay = Day(80, "sunny")
 // myDay.getDescription() // returns "It is 80 degrees and sunny"
+class Day {
+  constructor(temperature, weather) {
+    this.temperature = temperature;
+    this.weather = weather;
+  }
+
+  getDescription = () => {
+    return `It is ${this.temperature} degrees and ${this.weather}`;
+  }
+}
 
 //b.
 // Make a function called getAllDayDescriptions that takes in an array of Day objects and returns an array of their descriptions.  Use a higher-ordered function (e.g map, filter, reduce, every, sort) in your implementation.
 // The output should be in the same order as the input
-
+const getAllDayDescriptions = (array) => {
+  return array.map(dayObj => dayObj.getDescription());
+}
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 
 
