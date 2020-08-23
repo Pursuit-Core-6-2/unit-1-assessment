@@ -4,8 +4,10 @@ let assert = require('assert')
 
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
-
-
+const isOdd = (num) => {
+  if (isNaN(num)) return false;
+  return num % 2 === 1;
+}
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
