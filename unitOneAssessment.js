@@ -9,15 +9,18 @@ const isOdd = (num) => {
   return num % 2 === 1;
 }
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 
 // Question Two:
 
 // Write a function called numberOfDigits that returns how many digits are in a given number
-
+const numberOfDigits = (num) => {
+  if (num === 0) return 1;
+  return num.toString().length;
+}
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
