@@ -78,9 +78,11 @@ runQ5Tests()
 // QUESTION SIX:
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
-
+const onlyOddStrings = (array) => {
+  return array.filter(string => string.length % 2 === 1);
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 
 // QUESTION SEVEN:
