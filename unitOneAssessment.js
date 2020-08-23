@@ -167,7 +167,8 @@ function runQ4Tests() {
     new TestCase([5,1,4,2,5,6], 2),
     new TestCase([1,10,7,90,5,4], 4),
     new TestCase([2,1,4,90,5,6], 2),
-    new TestCase([1,3,4,90,5,6], 3)
+    new TestCase([1,3,4,90,5,6], 3),
+    new TestCase([3,2,1], 2)
   ]
   runTests("Four", testCases, secondSmallest)
 }
