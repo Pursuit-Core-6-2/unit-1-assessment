@@ -144,7 +144,9 @@ function runQ2Tests() {
       new TestCase(4,1),
       new TestCase(14,2),
       new TestCase(8473,4),
-      new TestCase(73746, 5)
+      new TestCase(73746, 5),
+      new TestCase(0, 1),
+      new TestCase(-11, 2),
     ]
     runTests("Two", testCases, numberOfDigits)
 }
