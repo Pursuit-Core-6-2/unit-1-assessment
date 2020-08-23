@@ -1,7 +1,6 @@
 let assert = require('assert')
 
-// Question One:
-
+// QUESTION ONE:
 // Write a function called isOdd that returns whether or not a number is odd.
 // If something that is not a number is passed in, return false.
 const isOdd = (num) => {
@@ -12,8 +11,7 @@ const isOdd = (num) => {
 runQ1Tests()
 
 
-// Question Two:
-
+// QUESTION TWO:
 // Write a function called numberOfDigits that returns how many digits are in a given number
 const numberOfDigits = (num) => {
   if (num === 0) return 1;
@@ -22,21 +20,32 @@ const numberOfDigits = (num) => {
 // Uncomment out the next line to test your solution
 runQ2Tests()
 
-// Question Three:
-
+// QUESTION THREE:
 // Write a function called disemvowel that removes all of the vowels from a string.
 // Treat y as a consonant, not a vowel
-
+const disemvowel = (string) => {
+  const vowels = {
+    a: 1,
+    e: 1,
+    i: 1,
+    o: 1,
+    u: 1
+  };
+  return string
+    .split('')
+    .filter(char => !vowels[char.toLowerCase()])
+    .join('');
+}
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
-// Question Four:
+// QUESTION FOUR:
 // Write a function called secondSmallest that returns the second smallest number in an array
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
 
-// Question Five:
+// QUESTION FIVE:
 // Write a function called getLocations that takes in an array of objects that look like the array below,
 // and returns an array of the strings corresponding to the value of the location property
 // The output should be in the same order as the input
@@ -51,8 +60,7 @@ runQ2Tests()
 // runQ5Tests()
 
 
-// Question Six:
-
+// QUESTION SIX:
 // Write a function called onlyOddStrings that takes in an array of strings as input and returns an array that only includes strings with an odd number of characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 
@@ -60,8 +68,7 @@ runQ2Tests()
 // runQ6Tests()
 
 
-// Question Seven:
-
+// QUESTION SEVEN:
 // a.
 // Make a class called Day
 // Give it two properties set by the constructor named temperature and weather
