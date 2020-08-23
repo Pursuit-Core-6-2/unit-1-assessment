@@ -41,7 +41,20 @@ runQ3Tests()
 
 // QUESTION FOUR:
 // Write a function called secondSmallest that returns the second smallest number in an array
+const secondSmallest = (array) => {
+  const mins = new Array(2).fill(Number.MAX_VALUE);
+  array.forEach(num => {
+    const min = mins[0];
+    const nextMin = mins[1];
+    if (num < min) {
+      mins.unshift(num);
+    } else if (num < nextMin) {
+      mins.splice(1, 1, num);
+    }
+  });
 
+  return mins[1];
+}
 // Uncomment out the next line to test your solution
 // runQ4Tests()
 
